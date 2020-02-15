@@ -1,0 +1,17 @@
+{
+  "name": "clancy",
+  "version": "1.0.0",
+  "description": "cli tool test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nabeel Ahmed",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "clear": "^0.1.0",
+    "figlet": "^1.2.4",
+    "minimist": "^1.2.0"
+  }
+}
