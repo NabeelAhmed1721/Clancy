@@ -9,14 +9,21 @@ class Clancy {
             throw new Error('Database does not exist! Use Clancy-cli to generate one!')
         } else {
             this._dbname = _dbname
+            this._dbroute = appRoot.path+'/Clancy/'+_dbname
         }
     }
     getdbname() {
-        return this._dbname
+        return this._dbname // Just return DB name
     }
-    insert(data, callback) {
-        console.log(data)
-        callback()
+    insert(_data, callback) { // Insert Value into DB
+        //console.log(_data)
+        var seg = this._dbroute+'/seg.json'
+        fs.readFile(seg, 'utf8', (err, data) => {
+            if(err) throw err
+            var savedData = JSON.parse(data)
+            savedData.push(_data)
+            fs.writeFile(seg, JSON.stringify(savedData), 'utf8', callback);
+        });
     }
 }
 
