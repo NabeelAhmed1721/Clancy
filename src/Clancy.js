@@ -1,4 +1,5 @@
 const fs = require('fs')
+const appRoot = require('app-root-path');
 
 class Clancy {
     constructor(_dbname) {
@@ -9,12 +10,15 @@ class Clancy {
         }
     }
     getdbname() {
+        console.log(validateDatabase(this._dbname))
         return this._dbname
     }
 }
 
 function validateDatabase(_dbname) {
-
+    var route = appRoot.path+'/Clancy/'+_dbname
+    console.log(route)
+    return fs.existsSync(route)
 }
 
 module.exports = Clancy

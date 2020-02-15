@@ -9,5 +9,6 @@
   "author": "Nabeel Ahmed",
   "license": "ISC",
   "dependencies": {
+    "app-root-path": "^3.0.0"
   }
 }
