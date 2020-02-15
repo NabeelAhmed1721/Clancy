@@ -16,7 +16,6 @@ class Clancy {
         return this._dbname // Just return DB name
     }
     insert(_data, callback) { // Insert Value into DB
-        //console.log(_data)
         var seg = this._dbroute+'/seg.json'
         fs.readFile(seg, 'utf8', (err, data) => {
             if(err) throw err
