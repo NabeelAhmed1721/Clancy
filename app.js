@@ -2,4 +2,7 @@ const Clancy = require('./src/Clancy')
 
 const test = new Clancy('test')
 
-test.insert({fullName: "Nabeel Ahmed"}, ()=>{console.log("Finsihed!")})
+console.log(test.getdbname())
+
+test.insert({fullName: `Nabeel`}, ()=>{})
+test.insert({fullName: `Shard`}, ()=>{})
