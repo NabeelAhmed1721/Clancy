@@ -19,30 +19,14 @@ function Clancy(_dbname) {
     }
     Clancy.prototype.insert = (_data, callback) => {
         var seg = this._dbroute+'/seg.json'
-        fs.readFile(seg,'utf8',(err,data)=>{
-            if(err) throw (err)
-            var useComma = data === '[]' ? '' : ','
-            fs.writeFile(seg,data.substring(0, data.length-1).concat(useComma),'utf8',()=>{
-                jsonfile.writeFile(seg, _data, { flag: 'a' }, function (err) {
-                    if (err) throw (err)
-                    fs.readFile(seg,'utf8',(err,data)=>{
-                        if (err) throw (err)
-                        fs.writeFile(seg, data+']','utf8',()=>{
-                            callback
-                        })
-                    })
-                })
-            })
-        })
-
-        // fs.readFile(seg, 'utf8', (err, data) => {
-        //     if(err) throw err
-        //     var savedData = JSON.parse(data)
-        //     _data = Object.assign({_id: nanoid()}, _data)
-        //     savedData.push(_data)
-        //     console.log(savedData)
-        //     fs.writeFile(seg, JSON.stringify(savedData), 'utf8', callback);
-        // });
+        fs.readFile(seg, 'utf8', (err, data) => {
+            if(err) throw err
+            var savedData = JSON.parse(data)
+            _data = Object.assign({_id: nanoid()}, _data)
+            savedData.push(_data)
+            console.log(savedData)
+            fs.writeFile(seg, JSON.stringify(savedData), 'utf8', callback);
+        });
     }
 }
 

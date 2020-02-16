@@ -9,4 +9,4 @@ const test = new Clancy('test')
 // }
 
 test.insert({fullName: `Nabeel`},()=>{})
-//test.insert({fullName: `Shard`},()=>{})
+test.insert({fullName: `Shard`},()=>{})
