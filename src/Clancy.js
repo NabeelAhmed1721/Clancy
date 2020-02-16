@@ -1,5 +1,6 @@
 const fs = require('fs')
-const appRoot = require('app-root-path');
+const appRoot = require('app-root-path')
+const nanoid = require('nanoid')
 
 class Clancy {
     constructor(_dbname) {
@@ -20,6 +21,7 @@ class Clancy {
         fs.readFile(seg, 'utf8', (err, data) => {
             if(err) throw err
             var savedData = JSON.parse(data)
+            _data = Object.assign({_id: nanoid()}, _data)
             savedData.push(_data)
             fs.writeFile(seg, JSON.stringify(savedData), 'utf8', callback);
         });
