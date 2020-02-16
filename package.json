@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "app-root-path": "^3.0.0",
+    "jsonfile": "^5.0.0",
     "nanoid": "^2.1.11"
   }
 }
